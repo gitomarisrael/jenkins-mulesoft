@@ -4,11 +4,11 @@
 
 	<groupId>b8f69e4d-f96e-47cb-bf59-5851d9268fef</groupId>
 	<!-- =1= Se agregó el BG -->
-	<artifactId>api-starwars-mulesoft</artifactId>
+	<artifactId>api-starwars-jenkins</artifactId>
 	<version>1.0.1</version>
 	<packaging>mule-application</packaging>
 
-	<name>api-starwars-mulesoft</name>
+	<name>api-starwars-jenkins</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +17,7 @@
 		<app.runtime>4.6.11</app.runtime>
 		<mule.maven.plugin.version>4.2.0</mule.maven.plugin.version>
 
-		<project.mule.name>api-starwars-mulesoft</project.mule.name>
+		<project.mule.name>api-starwars-jenkins</project.mule.name>
 		<!-- =2= Se agregó el deploy name -->
 	</properties>
 

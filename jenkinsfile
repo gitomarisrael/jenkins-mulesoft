@@ -25,7 +25,7 @@ pipeline {
                 script {
                     configFileProvider([configFile(fileId: "${MULE_SETTINGS_FILE}", variable: 'MAVEN_SETTINGS_XML')]) {
                         echo "MAVEN_SETTINGS_XML: ${env.MAVEN_SETTINGS_XML}"
-                        bat 'mvn -s %MAVEN_SETTINGS_XML% clean deploy -DbusinessGroupId=${MULE_BUSINESS_GROUP_ID} -Dmule.env=${ENV_PROPERTIES} -Denviroment=${ENVIROMENT} -DskipTest'
+                        bat 'mvn -s %MAVEN_SETTINGS_XML% clean deploy -DbusinessGroupId=${MULE_BUSINESS_GROUP_ID} -Dmule.env=${ENV_PROPERTIES} -Denviroment=${ENVIROMENT} -DskipTest -Danypoint.platform.assetType=rest-api'
                     }
                 }
             }
