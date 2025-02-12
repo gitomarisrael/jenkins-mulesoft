@@ -1,0 +1,57 @@
+pipeline {
+    agent any
+
+    environment {
+        MY_VAR = "Valor"
+    }
+
+    options {
+        timeout(time: 30, unit: 'MINUTES')
+    }
+
+    tools {
+        maven 'MavenMule'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Publish Asset Exchange') {
+            steps {
+                script {
+                    configFileProvider([configFile(fileId: "${MULE_SETTINGS_FILE}", variable: 'MAVEN_SETTINGS_XML')]) {
+                        echo "MAVEN_SETTINGS_XML: ${env.MAVEN_SETTINGS_XML}"
+                        bat 'mvn -s %MAVEN_SETTINGS_XML% clean deploy -DbusinessGroupId=${MULE_BUSINESS_GROUP_ID} -Dmule.env=${ENV_PROPERTIES} -Denviroment=${ENVIROMENT} -DskipTest'
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy CloudHub 2.0') {
+            steps {
+                script {
+                    configFileProvider([configFile(fileId: "${MULE_SETTINGS_FILE}", variable: 'MAVEN_SETTINGS_XML')]) {
+                        echo "MAVEN_SETTINGS_XML: ${env.MAVEN_SETTINGS_XML}"
+                        bat 'mvn -s %MAVEN_SETTINGS_XML% clean deploy -DmuleDeploy -Denvironment=${ENVIROMENT} -DbusinessGroupId=${MULE_BUSINESS_GROUP_ID} -Dtarget=${TARGET} -Dreplicas=${REPLICAS} -DvCores=${V_CORES} -Dmule.env=${ENV_PROPERTIES} -DskipTest'
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finalizada'
+        }
+        success {
+            echo 'Build exitosa'
+        }
+        failure {
+            echo 'Build fallida'
+        }
+    }
+}
