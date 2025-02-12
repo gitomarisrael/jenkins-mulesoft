@@ -20,7 +20,7 @@ pipeline {
             }
         }
         
-        stage('Publish Asset Exchange') {
+       /* stage('Publish Asset Exchange') {
             steps {
                 script {
                     configFileProvider([configFile(fileId: "${MULE_SETTINGS_FILE}", variable: 'MAVEN_SETTINGS_XML')]) {
@@ -29,7 +29,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         
         stage('Deploy CloudHub 2.0') {
             steps {
