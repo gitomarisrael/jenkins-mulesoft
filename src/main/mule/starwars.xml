@@ -5,6 +5,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
     <apikit:config name="starwars-config" api="resource::b8f69e4d-f96e-47cb-bf59-5851d9268fef:api-starwars-mulesoft:1.0.0:raml:zip:starwars.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<api-gateway:autodiscovery apiId="20207281" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="718dcd09-b4c6-4b20-846f-56806f0acdfe" flowRef="starwars-main" />
 	<flow name="starwars-main">
         <http:listener config-ref="starwars-httpListenerConfig" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
