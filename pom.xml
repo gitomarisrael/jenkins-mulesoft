@@ -19,7 +19,7 @@
 		<app.runtime>4.6.11</app.runtime>
 		<mule.maven.plugin.version>4.2.0</mule.maven.plugin.version>
 
-		<project.mule.name>api-starwars-jenkins</project.mule.name>
+		<project.mule.name>api-starwars-pipeline</project.mule.name>
 		<!-- =2= Se agregó el deploy name -->
 	</properties>
 
