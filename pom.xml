@@ -7,7 +7,7 @@
 	<groupId>b8f69e4d-f96e-47cb-bf59-5851d9268fef</groupId>
 	<!-- =1= Se agregó el BG -->
 	<artifactId>api-starwars-jenkins</artifactId>
-	<version>1.0.13</version>
+	<version>1.0.14</version>
 	<packaging>mule-application</packaging>
 
 	<name>api-starwars-jenkins</name>
