@@ -7,7 +7,7 @@
 	<groupId>b8f69e4d-f96e-47cb-bf59-5851d9268fef</groupId>
 	<!-- =1= Se agregó el BG -->
 	<artifactId>api-starwars-jenkins</artifactId>
-	<version>1.0.14</version>
+	<version>1.0.15</version>
 	<packaging>mule-application</packaging>
 
 	<name>api-starwars-jenkins</name>
@@ -19,7 +19,7 @@
 		<app.runtime>4.6.11</app.runtime>
 		<mule.maven.plugin.version>4.2.0</mule.maven.plugin.version>
 
-		<project.mule.name>api-starwars-pipeline</project.mule.name>
+		<project.mule.name>api-starwars-jenkins</project.mule.name>
 		<!-- =2= Se agregó el deploy name -->
 	</properties>
 
@@ -60,6 +60,8 @@
 						</deploymentSettings>
 						<properties>
 							<mule.env>${mule-env}</mule.env>
+							<anypoint.platform.client_id>${clientId}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${clienSecret}</anypoint.platform.client_secret>
 						</properties>
 						<releaseChannel>LTS</releaseChannel>
 						<javaVersion>8</javaVersion>
